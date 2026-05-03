@@ -4,8 +4,8 @@
   const TARGET_ALIAS = "/sales-targets";
   const OVERLAY_ID = "trygc-sales-route-surface";
   const QUOTA = 750000;
-  const STAGE_WON = 5;
-  const STAGE_LOST = 6;
+  const STAGE_WON = 6;
+  const STAGE_LOST = 7;
   const KEYS = {
     period: "repPerfPeriod",
     rep: "repPerfRep",
@@ -16,16 +16,7 @@
     targetPeriod: "salesTargetPeriod"
   };
 
-  const DEFAULT_DEALS = [
-    { id: "D-001", name: "TechCorp Digital Transformation", clientName: "TechCorp Solutions", market: "United States", serviceLine: "Consulting", dealValue: 450000, collectedAmount: 300000, pendingAmount: 150000, grossProfit: 157500, stage: 3, status: "Active", salesOwner: "Sarah Mitchell", expectedClosingDate: "2026-06-30", createdAt: Date.now() - 45 * 86400000, nextActionDate: Date.now() + 3 * 86400000 },
-    { id: "D-002", name: "Global Retail CRM Implementation", clientName: "Global Retail Inc", market: "United Kingdom", serviceLine: "Software Development", dealValue: 680000, collectedAmount: 680000, pendingAmount: 0, grossProfit: 285600, stage: 5, status: "Won", salesOwner: "James Anderson", expectedClosingDate: "2026-03-15", actualClosingDate: "2026-03-12", createdAt: Date.now() - 120 * 86400000 },
-    { id: "D-003", name: "StartupHub Financial Advisory", clientName: "StartupHub Ventures", market: "Singapore", serviceLine: "Financial Advisory", dealValue: 95000, collectedAmount: 50000, pendingAmount: 45000, grossProfit: 28000, stage: 4, status: "Active", salesOwner: "Emily Chen", expectedClosingDate: "2026-05-25", createdAt: Date.now() - 38 * 86400000, nextActionDate: Date.now() - 2 * 86400000 },
-    { id: "D-004", name: "MidMarket Manufacturing BI", clientName: "MidMarket Manufacturing", market: "Germany", serviceLine: "Analytics", dealValue: 420000, collectedAmount: 210000, pendingAmount: 210000, grossProfit: 138600, stage: 2, status: "Active", salesOwner: "Priya Nair", expectedClosingDate: "2026-07-12", createdAt: Date.now() - 72 * 86400000, nextActionDate: Date.now() + 7 * 86400000 },
-    { id: "D-005", name: "Retail Finance Dashboard", clientName: "Northstar Retail", market: "United States", serviceLine: "Analytics", dealValue: 240000, collectedAmount: 240000, pendingAmount: 0, grossProfit: 96000, stage: 5, status: "Won", salesOwner: "Priya Nair", expectedClosingDate: "2026-02-18", actualClosingDate: "2026-02-15", createdAt: Date.now() - 96 * 86400000 },
-    { id: "D-006", name: "Enterprise Automation Program", clientName: "Atlas Group", market: "United Arab Emirates", serviceLine: "Consulting", dealValue: 780000, collectedAmount: 120000, pendingAmount: 660000, grossProfit: 202800, stage: 3, status: "Active", salesOwner: "James Anderson", expectedClosingDate: "2026-08-04", createdAt: Date.now() - 26 * 86400000, nextActionDate: Date.now() + 1 * 86400000 },
-    { id: "D-007", name: "Cloud Cost Optimization", clientName: "StartupHub Ventures", market: "Singapore", serviceLine: "Cloud", dealValue: 135000, collectedAmount: 135000, pendingAmount: 0, grossProfit: 67500, stage: 5, status: "Won", salesOwner: "Maya Hassan", expectedClosingDate: "2026-04-05", actualClosingDate: "2026-04-01", createdAt: Date.now() - 50 * 86400000 },
-    { id: "D-008", name: "Customer Data Platform", clientName: "Global Retail Inc", market: "United Kingdom", serviceLine: "Software Development", dealValue: 510000, collectedAmount: 0, pendingAmount: 510000, grossProfit: 153000, stage: 1, status: "Active", salesOwner: "Maya Hassan", expectedClosingDate: "2026-09-14", createdAt: Date.now() - 14 * 86400000, nextActionDate: Date.now() + 4 * 86400000 }
-  ];
+  const DEFAULT_DEALS = [];
 
   function readJson(key, fallback) {
     try {
@@ -65,7 +56,7 @@
 
   function getDeals() {
     const deals = readJson("FS_DEALS", null);
-    return Array.isArray(deals) && deals.length ? deals : DEFAULT_DEALS;
+    return Array.isArray(deals) ? deals : DEFAULT_DEALS;
   }
 
   function getTargets(reps) {

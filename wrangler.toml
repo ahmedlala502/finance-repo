@@ -3,6 +3,10 @@ name = "trygc-finance-tool"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-04-29"
 
+[[kv_namespaces]]
+id = "bbbc8bd5c5e0476899cae0c8b6750240"
+binding = "AUTH_USERS"
+
 [env.production]
 compatibility_date = "2026-04-21"
 compatibility_flags = [ "enhanced_error_serialization" ]
