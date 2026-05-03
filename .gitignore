@@ -1,0 +1,4 @@
+CONVERSATION_NOTES.md
+.wrangler/
+.deploy*/
+node_modules/
